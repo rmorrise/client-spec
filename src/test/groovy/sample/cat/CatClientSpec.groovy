@@ -1,11 +1,14 @@
 package sample.cat
 
 import com.stehno.ersatz.ErsatzServer
+import org.grails.testing.GrailsUnitTest
 import org.springframework.beans.factory.annotation.Autowired
 import spock.lang.AutoCleanup
 import spock.lang.Specification
 
-class CatClientSpec extends Specification {
+import static org.hamcrest.Matchers.startsWith
+
+class CatClientSpec extends Specification implements GrailsUnitTest {
     @AutoCleanup
     ErsatzServer ersatz
 

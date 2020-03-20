@@ -67,6 +67,7 @@ dependencies {
     compile "io.micronaut:micronaut-http-client"
     // use the shadow jar, so spring doesn't try to configure an embedded undertow server during integration testing
     testCompile 'com.stehno.ersatz:ersatz:1.9.0:safe@jar'
+    testImplementation 'org.hamcrest:hamcrest:2.1'
 }
 
 bootRun {
