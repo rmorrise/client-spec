@@ -6,11 +6,11 @@ import io.micronaut.http.client.annotation.Client
 
 import javax.annotation.Nullable
 
-@Client('${catService.url}')
+@Client('${cat-service.url}')
 interface CatClient {
     @Get('/breeds')
     List<Breed> breeds()
 
     @Get('/images/search{?breed_id}')
-    List<Cat> search(@QueryValue @Nullable String breedId)
+    List<Cat> search(@QueryValue('breed_id') @Nullable String breedId)
 }

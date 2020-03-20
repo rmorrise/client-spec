@@ -1,14 +1,14 @@
 package client.spec
 
-import grails.core.GrailsApplication
-import grails.plugins.*
 
-class ApplicationController implements PluginManagerAware {
+import org.springframework.beans.factory.annotation.Autowired
+import sample.cat.CatClient
 
-    GrailsApplication grailsApplication
-    GrailsPluginManager pluginManager
+class ApplicationController {
+    @Autowired
+    CatClient catClient
 
     def index() {
-        [grailsApplication: grailsApplication, pluginManager: pluginManager]
+        [cats: catClient.search()]
     }
 }
