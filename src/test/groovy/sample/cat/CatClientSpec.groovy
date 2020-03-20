@@ -1,6 +1,7 @@
 package sample.cat
 
 import com.stehno.ersatz.ErsatzServer
+import grails.testing.mixin.integration.Integration
 import org.grails.testing.GrailsUnitTest
 import org.springframework.beans.factory.annotation.Autowired
 import spock.lang.AutoCleanup
@@ -8,6 +9,7 @@ import spock.lang.Specification
 
 import static org.hamcrest.Matchers.startsWith
 
+@Integration
 class CatClientSpec extends Specification implements GrailsUnitTest {
     @AutoCleanup
     ErsatzServer ersatz
@@ -20,6 +22,8 @@ class CatClientSpec extends Specification implements GrailsUnitTest {
         ersatz.start()
         // FIXME: how do I set up the URL?
 //        service.catUrl = ersatz.httpUrl + '/'
+        // FIXME: this doesn't work
+        System.setProperty('cat-service.url', ersatz.httpUrl)
     }
 
     def cleanup() {
