@@ -5,10 +5,9 @@ import sample.cat.CatClient
 import spock.lang.Specification
 
 class CatServiceSpec extends Specification implements ServiceUnitTest<CatService> {
-    CatClient catClient
+    CatClient catClient = Mock(CatClient)
 
     def setup() {
-        catClient = Mock(CatClient)
         service.catClient = catClient
     }
 
@@ -17,7 +16,7 @@ class CatServiceSpec extends Specification implements ServiceUnitTest<CatService
         def result = service.search()
 
         then:
-        1 * catClient.search() >> []
+        1 * catClient.search(null) >> []
         result == []
     }
 }
