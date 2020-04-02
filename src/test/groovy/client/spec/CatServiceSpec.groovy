@@ -5,9 +5,10 @@ import sample.cat.CatClient
 import spock.lang.Specification
 
 class CatServiceSpec extends Specification implements ServiceUnitTest<CatService> {
-    CatClient catClient = Mock()
+    CatClient catClient
 
     def setup() {
+        catClient = Mock(CatClient)
         service.catClient = catClient
     }
 
